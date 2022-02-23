@@ -54,8 +54,8 @@ public class primary {
             scanner.useDelimiter(",");
             String lineInResultFile = "";
 
-            ArrayList<String[]> FT_resultList = new ArrayList<>();
-            ArrayList<String[]> BT_resultList = new ArrayList<>();
+            ArrayList<String[]> FootballTeams = new ArrayList<>();
+            ArrayList<String[]> BasketballTeams = new ArrayList<>();
             while (scanner.hasNext()) {
                 lineInResultFile = scanner.nextLine();
                 String result[] = lineInResultFile.split(",");
@@ -63,11 +63,11 @@ public class primary {
                 matchResult = result[1];
 
                 if (resultTeamName.equalsIgnoreCase("Boston Celtics") || resultTeamName.equalsIgnoreCase("Los Angeles Lakers") || resultTeamName.equalsIgnoreCase("Cleveland Cavaliers")) {
-                    BT_resultList.add(result);
-                    //System.out.println(BT_resultList);
+                    BasketballTeams.add(result);
+                    //System.out.println(BasketballTeams);
                 } else {
-                    FT_resultList.add(result);
-                    //System.out.println(FT_resultList);
+                    FootballTeams.add(result);
+                    //System.out.println(FootballTeams);
                 }
                 //System.out.println("[Matches.Team Name: " + resultTeamName + ", " + "MatchResult: " + matchResult + "]");
 
@@ -76,12 +76,12 @@ public class primary {
 
         int updatedPoints;
         int pointsAdded;
-        for (int i = 0; i < BT_resultList.size(); i++) {
+        for (int i = 0; i < BasketballTeams.size(); i++) {
 
-            pointsAdded = basketball1.get(0).updatePoints(BT_resultList.get(i)[1]);
+            pointsAdded = basketball1.get(0).updatePoints(BasketballTeams.get(i)[1]);
             for (int j = 0; j < basketball1.size(); j++) {
 
-                if (basketball1.get(j).getTeamName().equals(BT_resultList.get(i)[0])) {
+                if (basketball1.get(j).getTeamName().equals(BasketballTeams.get(i)[0])) {
                     updatedPoints = (basketball1.get(j).getPoints()) + pointsAdded;
 
 //                    using arraylist set method replace object of BasketBallTeam on index j from loop.
@@ -94,12 +94,12 @@ public class primary {
         System.out.println();
 
 
-        for (int i = 0; i < FT_resultList.size(); i++) {
+        for (int i = 0; i < FootballTeams.size(); i++) {
 
-            pointsAdded = football1.get(0).updatePoints(FT_resultList.get(i)[1]);
+            pointsAdded = football1.get(0).updatePoints(FootballTeams.get(i)[1]);
             for (int j = 0; j < football1.size(); j++) {
 
-                if (football1.get(j).getTeamName().equals(FT_resultList.get(i)[0])) {
+                if (football1.get(j).getTeamName().equals(FootballTeams.get(i)[0])) {
                     updatedPoints = (football1.get(j).getPoints()) + pointsAdded;
 
 

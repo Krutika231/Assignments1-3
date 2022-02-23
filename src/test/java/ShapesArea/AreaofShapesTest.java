@@ -2,6 +2,7 @@ package ShapesArea;
 
 import Assignment2.ShapesArea.AreaofShapes;
 import Assignment3.BasketballTeam;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AreaofShapesTest {
     AreaofShapes obj,obj1;
+
+    @Before
+    public void setUp(){
+        obj=new AreaofShapes();
+        obj.square(4);
+
+    }
+
 
     @Test
     void square() {
